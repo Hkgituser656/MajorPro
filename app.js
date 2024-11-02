@@ -21,14 +21,40 @@ app.use(bodyParser.json());
 // Routes
 app.use('/summarize', summarizeRouter);
 
-// Predefined YouTube video links based on user input (existing functionality)
+
 const videoLinks = {
-    "1": {
+    "beginner": {
         "Web Development": {
             "English": "https://www.youtube.com/watch?v=DzsYKMuCxts",
             "Hindi": "https://www.youtube.com/first-year-web-dev-hindi"
         },
-        // Other domains...
+        "App Development": {
+            "English": ".",
+            "Hindi": "."
+        },
+        "Macine Learning": {
+            "English": ".",
+            "Hindi": "."
+        },
+        "JAVA": {
+            "English": ".",
+            "Hindi": "."
+        },
+        "C++": {
+            "English": ".",
+            "Hindi": "."
+        },
+        "DSA": {
+            "English": ".",
+            "Hindi": "."
+        },
+        
+    },
+    "intermediate": {
+        //idhar bhi same upar k jaisa 
+    },
+    "advanced": {
+        //idhar bhi same upar k jaisa 
     },
    
 };
@@ -77,13 +103,13 @@ app.get('/progress', (req, res) => {
 });
 
 app.post('/progress', async (req, res) => {
-    const { engineeringYear, domainOfInterest, languageMode } = req.body;
+    const { level, domainOfInterest, languageMode } = req.body;
 
     try {
-        const videoLink = videoLinks[engineeringYear][domainOfInterest][languageMode];
+        const videoLink = videoLinks[level][domainOfInterest][languageMode];
         const user = await User.findOneAndUpdate(
             { email: req.body.email },
-            { engineeringYear, domainOfInterest, languageMode },
+            { level, domainOfInterest, languageMode },
             { new: true }
         );
 
