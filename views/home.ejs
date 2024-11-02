@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body, html {
+        height: 100%;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background: linear-gradient(135deg, #f06, #ff9);  */
+        color: #333;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        height: 95vh;
+        width: 95vw;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sidebar {
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .name-section {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .name-section h1 {
+        margin-top: 10%;
+        font-size: 2rem;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .image-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-section img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 3px solid #333;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .image-section img:hover {
+        transform: scale(1.1);
+    }
+
+    .image-section a {
+        color: white;
+        background-color: rgb(75, 111, 240);
+        border-radius: 10px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .image-section a:hover {
+        background-color: blue;
+        color: white;
+    }
+
+    .logout-section {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .logout-section a {
+        color: white;
+        background-color: rgb(228, 116, 116);
+        border-radius: 10px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logout-section a:hover {
+        background-color: red;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .main-content {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .main-content a {
+        background-color: black;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+    }
+
+    .top-block, .bottom-block {
+        background-color: #e8e8e8;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+
+    body.dark-mode {
+        background-color: #333;
+        color: #fff;
+        background: linear-gradient(135deg, black , black);
+    }
+
+    /* Dark mode for the container */
+    body.dark-mode .container {
+        background-color: #444;
+        color: white;
+    }
+
+    body.dark-mode .sidebar {
+        background-color: #555;
+        color: white;
+    }
+
+    /* Dark-Light Toggle Button */
+    .dark-light-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .dark-light-btn:hover {
+        background-color: #555;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            grid-template-columns: 100%;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .sidebar {
+            grid-row: 1;
+            grid-column: 1 / -1;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .main-content {
+            grid-row: 2;
+            grid-column: 1 / -1;
+            grid-template-rows: auto;
+            grid-template-columns: 1fr;
+        }
+
+        .name-section h1 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .image-section img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .top-block, .bottom-block {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sidebar {
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .name-section h1 {
+            font-size: 1.2rem;
+        }
+
+        .image-section img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+<body>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="name-section">
+                <h1><%=user.name %></h1>
+            </div>
+            <div class="image-section">
+                <img src="https://www.internetandtechnologylaw.com/files/2019/06/iStock-872962368-chat-bots.jpg" alt="Profile Image">
+                <a href="">ASK ME</a>
+            </div>
+            <div class="logout-section">
+               <a href="/logout">LOGOUT</a>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="top-block">
+                <a href="/progress">VISIT</a>
+            </div>
+            <div class="bottom-block">
+                <a href="/summarize">CHECK</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <button id="b" class="dark-light-btn">MODE</button>
+
+    <script>
+        var b = document.getElementById("b");
+        b.addEventListener("click", function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
