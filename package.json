@@ -9,7 +9,7 @@
     "start-python": "python scripts/summarizer.py"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anshu",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
