@@ -27,8 +27,8 @@ app.use("/summarize", summarizeRouter);
 const videoLinks = {
   beginner: {
     "Web Development": {
-      English: "https://www.youtube.com/watch?v=DzsYKMuCxts",
-      Hindi: "https://www.youtube.com/first-year-web-dev-hindi",
+      English: "https://youtu.be/MDZC8VDZnV8?si=6njlZM5ybMKwXgAt",
+      Hindi: "https://youtube.com/playlist?list=PLfEr2kn3s-br9ZFmejfLhAgMbGgbpdof8&si=nsWSsZ766A4JiL0C",
     },
     "App Development": {
       English: ".",
@@ -57,6 +57,14 @@ const videoLinks = {
   },
   intermediate: {
     //idhar bhi same upar k jaisa
+     "Web Development": {
+      English: "https://youtu.be/R6RX2Zx96fE?si=6o-BFpXjFKag_upl",
+      Hindi: "https://youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&si=yTMuPRbp2Yb-7bsN",
+    },
+    "App Development": {
+      English: ".",
+      Hindi: ".",
+    },
     "C++": {
       English:
         "https://www.youtube.com/watch?v=oOmbSpOzvYg&list=PLdo5W4Nhv31YU5Wx1dopka58teWP9aCee",
@@ -72,6 +80,14 @@ const videoLinks = {
   },
   advanced: {
     //idhar bhi same upar k jaisa
+     "Web Development": {
+      English: "https://youtu.be/nu_pCVPKzTk?si=EOY8JQBIjRHdgusE",
+      Hindi: "https://youtube.com/playlist?list=PLfqMhTWNBTe3H6c9OGXb5_6wcc1Mca52n&si=h9pAO-a-1EpZB1v8",
+    },
+    "App Development": {
+      English: ".",
+      Hindi: ".",
+    },
     "C++": {
       English: "https://www.youtube.com/watch?v=OAlU9IhJo2Y",
       Hindi:
